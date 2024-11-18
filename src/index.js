@@ -2,10 +2,14 @@
 
 // import mongoose from "mongoose";
 // import {DB_NAME} from "./constants"
-import express from "express"
+// import express from "express"
 import dotenv from "dotenv"
 import connectDB from "./db/index.js";
-const app = express()
+import {app} from "./app.js"
+// const app = express()
+dotenv.config({
+    path:'./env'
+})
 /*
 ;(async ()=>{
     try {
@@ -23,13 +27,14 @@ const app = express()
     }
 })() // IFFE method calling
 
-*/
 // require('dotenv').config({path:'./env'})
+*/
 
 
-dotenv.config({
-    path:'./env'
-})
+
+
+
+
 connectDB().then(()=>{
     app.listen(process.env.PORT || 8000,()=>{
         console.log(`Server is running at Port: ${process.env.PORT}`)
